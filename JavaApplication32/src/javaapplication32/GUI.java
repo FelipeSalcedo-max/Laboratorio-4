@@ -12,7 +12,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GUI extends javax.swing.JFrame {
     DefaultTableModel mod=new DefaultTableModel();
-    static String contador;
+    DefaultTableModel modr=new DefaultTableModel();
+    static String contadore;
+    static String contadorn;
 
     /**
      * Creates new form GUI
@@ -44,7 +46,7 @@ public class GUI extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaResultado = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,14 +93,24 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButton1.setText("Crear Tabla");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Calcular Finales");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Mostrar Historico");
 
         jLabel3.setText("Nombre Estudiante");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaResultado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -109,7 +121,7 @@ public class GUI extends javax.swing.JFrame {
                 "Nombre", "Definitiva", "Resultado"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(TablaResultado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,20 +190,43 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CantidadEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadEstudiantesActionPerformed
-    contador = CantidadEstudiantes.getText();
-    int cont= Integer.parseInt(contador);
-    mod.setNumRows(cont);
-    TablaEstudiantes.setModel(mod);
+    
+    
     }//GEN-LAST:event_CantidadEstudiantesActionPerformed
 
     private void CantidadNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantidadNotasActionPerformed
-      contador = CantidadNotas.getText();
-    int cont= Integer.parseInt(contador);
-    for (int i = 0; i < cont; i++) {
-            mod.addColumn("Nota "+i);//lo coloca dentro de la tabla en columnas
-            TablaEstudiantes.setModel(mod);
-    }  // TODO add your handling code here:
+      
+      
+    //TablaEstudiantes.setModel(mod);
+    //return;// TODO add your handling code here:
     }//GEN-LAST:event_CantidadNotasActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       contadore = CantidadEstudiantes.getText();
+       contadorn = CantidadNotas.getText();
+        int conte= Integer.parseInt(contadore);
+    mod.setNumRows(conte);
+    int contn= Integer.parseInt(contadorn);
+    mod.addColumn("Nombres ");
+    for (int i = 1; i < contn+1; i++) {
+            mod.addColumn("Nota "+i);//lo coloca dentro de la tabla en columnas
+            
+            
+    }
+    TablaEstudiantes.setModel(mod);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        contadore = CantidadEstudiantes.getText();
+        int conte= Integer.parseInt(contadore);
+        modr.setNumRows(conte);
+        modr.addColumn("Nombre ");
+        modr.addColumn("Definitiva ");
+        modr.addColumn("Resultado ");
+        TablaResultado.setModel(modr);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,6 +267,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField CantidadEstudiantes;
     private javax.swing.JTextField CantidadNotas;
     private javax.swing.JTable TablaEstudiantes;
+    private javax.swing.JTable TablaResultado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -242,7 +278,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
