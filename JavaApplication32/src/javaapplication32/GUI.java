@@ -5,7 +5,8 @@
  */
 package javaapplication32;
 import javax.swing.table.DefaultTableModel;
-
+import javaapplication32.LeerArchivo; 
+import javaapplication32.NotasCvs; 
 /**
  *
  * @author RetailAdmin
@@ -20,7 +21,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() {
         initComponents();
     }
-
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +46,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,6 +113,13 @@ public class GUI extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable2);
 
+        jButton4.setText("llenar con .csv");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,10 +140,15 @@ public class GUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField2)
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CantidadEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                            .addComponent(CantidadNotas)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CantidadEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                    .addComponent(CantidadNotas)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(jButton4))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
                         .addComponent(jLabel3))
@@ -162,7 +176,8 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton3)
@@ -192,6 +207,18 @@ public class GUI extends javax.swing.JFrame {
             TablaEstudiantes.setModel(mod);
     }  // TODO add your handling code here:
     }//GEN-LAST:event_CantidadNotasActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      Object O[]=null;
+ for (int i = 0; i < Lista.size(); i++) {
+ mod.addRow(O);
+ NotasCvs getLista = (NotasCvs) Lista.get(i);
+ mod.setValueAt(getLista.getNombre(), i, 0);
+ mod.setValueAt(getLista.getNota1(), i, 1);
+ mod.setValueAt(getLista.getNota2(), i, 2);
+ mod.setValueAt(getLista.getNota3(), i, 3);
+ }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,6 +262,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
