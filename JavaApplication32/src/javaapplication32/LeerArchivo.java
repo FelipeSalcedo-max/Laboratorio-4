@@ -8,6 +8,7 @@ package javaapplication32;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -22,7 +23,7 @@ public class LeerArchivo {
             
             System.out.println("Nombre del archivo: "+Notas.getName());
             System.out.println("Ruta del archivo: "+Notas.getAbsolutePath());
-            ArrayList Lista = new ArrayList();
+            ArrayList Lista = new ArrayList<>();
             
             Scanner myReader = new Scanner(Notas); 
             while(myReader.hasNextLine()){

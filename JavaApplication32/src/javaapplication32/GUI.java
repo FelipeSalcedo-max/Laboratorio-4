@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package javaapplication32;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import javaapplication32.LeerArchivo; 
-import javaapplication32.NotasCvs; 
+//import javaapplication32.LeerArchivo; 
+//import javaapplication32.NotasCvs; 
+//import javaapplication32.LeerArchivo;
 /**
  *
  * @author RetailAdmin
@@ -16,7 +18,7 @@ public class GUI extends javax.swing.JFrame {
     DefaultTableModel modr=new DefaultTableModel();
     static String contadore;
     static String contadorn;
-
+    ArrayList Lista = new ArrayList<>();
     /**
      * Creates new form GUI
      */
@@ -248,9 +250,9 @@ public class GUI extends javax.swing.JFrame {
     //return;// TODO add your handling code here:
     }//GEN-LAST:event_CantidadNotasActionPerformed
 
-<<<<<<< HEAD
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
       Object O[]=null;
+      
  for (int i = 0; i < Lista.size(); i++) {
  mod.addRow(O);
  NotasCvs getLista = (NotasCvs) Lista.get(i);
@@ -260,7 +262,7 @@ public class GUI extends javax.swing.JFrame {
  mod.setValueAt(getLista.getNota3(), i, 3);
  }
     }//GEN-LAST:event_jButton4ActionPerformed
-=======
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        contadore = CantidadEstudiantes.getText();
        contadorn = CantidadNotas.getText();
@@ -287,7 +289,7 @@ public class GUI extends javax.swing.JFrame {
         TablaResultado.setModel(modr);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
->>>>>>> 7f25d1a1cf23e24a272e467e126054b6f05c9ce2
+
 
     /**
      * @param args the command line arguments
